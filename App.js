@@ -12,7 +12,8 @@ import Major from "./src/screens/Major";
 import Cohort from "./src/screens/Cohort";
 import List from "./src/screens/List";
 import BlockCourse from "./src/screens/TrainingProgram";
-import AppProvider from "./src/Context/AppProvider";
+import AppProvider from "./src/context/AppProvider";
+import MajorInFaculty from "./src/screens/MajorInFaculty";
 
 const Drawer = createDrawerNavigator();
 
@@ -82,11 +83,22 @@ export default function App() {
           <Drawer.Screen
             name="BlockCourse"
             options={{
-              drawerLabel: "Khối KT",
-              title: "Khối KT",
+              drawerLabel: "",
+              drawerItemStyle: {height : 0},
+              title: "Chương trình đào tạo",
             }}
+
             component={BlockCourse}
           />
+          <Drawer.Screen
+            name="MajorInFaculty"
+            options={{
+              drawerLabel: "",
+              title: "Các Ngành của khoa",
+            }}
+            component={MajorInFaculty}
+          />
+         
         </Drawer.Navigator>
       </NavigationContainer>
     </AppProvider>
@@ -102,9 +114,11 @@ const styles = StyleSheet.create({
     borderBottomColor: "#fff",
     borderBottomWidth: 1,
   },
+  
   image: {
     height: 120,
-    width: 120,
+    width: 132,
+    objectFit: "cover",
   },
   screen: {
     drawerStyle: {

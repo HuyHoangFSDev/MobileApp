@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native'
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { DataTable } from 'react-native-paper'; 
+import { AppContext } from '../context/AppProvider';
 
 
 
-export default function Main() {
+export default function Main({navigation}) {
     const [faculty, setFaculty] = useState([]);
     const [page, setPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(5);
-  
+    const {setFacultyData} = useContext(AppContext)
     useEffect(() => {
         fetch('https://localhost:8001/api/Faculties')
         .then((response) => response.json())
@@ -32,7 +33,13 @@ export default function Main() {
                             <DataTable.Cell style = {styles.cell}>{item.facultyId}</DataTable.Cell>
                             <DataTable.Cell>{item.facultyName}</DataTable.Cell>
                             <DataTable.Cell>{item.facultyDescription}</DataTable.Cell>
-                            <DataTable.Cell style = {styles.cell}>{item.majorCount}</DataTable.Cell>
+                            <DataTable.Cell style = {styles.cell}
+                              onPress={() =>{
+                                navigation.navigate(
+                                  "MajorInFaculty"
+                                )
+                              }}
+                            >{item.majorCount}</DataTable.Cell>
                         </DataTable.Row>
                     ))}
                 <DataTable.Pagination
@@ -42,7 +49,7 @@ export default function Main() {
                       label={`${from + 1}-${to} of ${faculty.length}`}
                       itemsPerPage={itemsPerPage}
                       setItemsPerPage={setItemsPerPage}
-                      itemsPerPageOptions={[5, 10, 15]} // Các tùy chọn số mục trên mỗi trang
+                      itemsPerPageOptions={[5, 10, 15]} 
                       showFastPaginationControls
                       showCompact
                       style = {styles.pagination}

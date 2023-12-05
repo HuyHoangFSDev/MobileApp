@@ -1,15 +1,11 @@
 import "react-native-gesture-handler"
-import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text, StyleSheet } from 'react-native'
 import Animated, {  FadeInUp } from 'react-native-reanimated';
-import { createDrawerNavigator } from "@react-navigation/drawer";
 
 
-const Drawer = createDrawerNavigator();
 
 export default function Home(){
-    const navigation = useNavigation();
     return (
     <View>
         <Animated.Text style={styles.mainText}>
@@ -34,10 +30,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 24,
         fontWeight: "bold",
-        color: 'orange', // Màu cam cho phần "PHẦN MỀM CHƯƠNG TRÌNH ĐẠO TẠO"
+        color: 'orange', 
       },
       secondaryText: {
-        color: 'navy', // Màu xanh navy cho phần "TRƯỜNG ĐẠI HỌC ĐẠI NAM"
+        color: 'navy', 
       },
     image: {
         alignSelf: 'center',

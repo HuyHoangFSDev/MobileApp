@@ -35,7 +35,7 @@ export default function Cohort(){
                       label={`${from + 1}-${to} of ${cohort.length}`}
                       itemsPerPage={itemsPerPage}
                       setItemsPerPage={setItemsPerPage}
-                      itemsPerPageOptions={[5, 10, 15]} // Các tùy chọn số mục trên mỗi trang
+                      itemsPerPageOptions={[5, 10, 15]} 
                       showFastPaginationControls
                       showCompact
                   />   

@@ -1,7 +1,7 @@
 import { StyleSheet, Button } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { DataTable } from "react-native-paper";
-import { AppContext } from "../Context/AppProvider";
+import { AppContext } from "../context/AppProvider";
 
 export default function List({ navigation }) {
   const [cohortMajors, setCohortMajors] = useState([]);
@@ -37,9 +37,7 @@ export default function List({ navigation }) {
             <Button
               title="Xem"
               onPress={() => {
-                // setData({majorId: item.majorId, cohortId: item.cohortId})
                 setDataBc({majorId: item.majorId, cohortId: item.cohortId})
-                // console.log(data)
                 navigation.navigate("BlockCourse")
               }
             }
